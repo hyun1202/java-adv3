@@ -8,7 +8,7 @@ import java.util.function.Predicate;
 
 public class MyStreamV3<T> {
 
-    private List<T> internalList;
+    private final List<T> internalList;
 
     private MyStreamV3(List<T> internalList) {
         this.internalList = internalList;
@@ -44,5 +44,9 @@ public class MyStreamV3<T> {
 
     public List<T> toList() {
         return internalList;
+    }
+
+    public T getFirst() {
+        return internalList.get(0);
     }
 }
