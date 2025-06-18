@@ -1,7 +1,6 @@
 package parallel.forkjoin;
 
 import parallel.HeavyJob;
-import util.MyLogger;
 
 import java.util.List;
 import java.util.concurrent.RecursiveTask;
@@ -9,7 +8,8 @@ import java.util.concurrent.RecursiveTask;
 import static util.MyLogger.log;
 
 public class SumTask extends RecursiveTask<Integer> {
-    private static final int THRESHOLD = 4;
+//    private static final int THRESHOLD = 4;
+    private static final int THRESHOLD = 2;
     private final List<Integer> list;
 
     public SumTask(List<Integer> list) {
@@ -27,7 +27,7 @@ public class SumTask extends RecursiveTask<Integer> {
             log("[처리 완료]" + list + " -> sum: " + sum);
             return sum;
         }
-        // 작업 범위가 크면 반으로 나누어 병령 처리
+        // 작업 범위가 크면 반으로 나누어 병렬 처리
         int mid = list.size() / 2;
         List<Integer> leftList = list.subList(0, mid);
         List<Integer> rightList = list.subList(mid, list.size());

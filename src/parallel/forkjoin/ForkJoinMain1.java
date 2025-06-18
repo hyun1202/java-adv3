@@ -32,5 +32,6 @@ public class ForkJoinMain1 {
 
         log("time: " + (endTime - startTime) + "ms, sum: " + result);
         log("pool: " + pool);
+
     }
 }
